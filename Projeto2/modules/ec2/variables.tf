@@ -17,5 +17,5 @@ variable "subnet_id" {
 
 variable "security_group_ids" {
 	description = "Grupo de Segurança da Instância"
-	type = list
+	type = string
 }
