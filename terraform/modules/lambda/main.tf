@@ -1,5 +1,4 @@
 data "archive_file" "lambda_package" {
-  description = "Código da Função Lambda"
   type = "zip"
   source_file = "index.js"
   output_path = "index.zip"
@@ -15,9 +14,9 @@ resource "aws_lambda_function" "sync_lambda" {
   source_code_hash = data.archive_file.lambda_package.output_base64sha256
 }
 
+#Role da Função Lambda
 resource "aws_iam_role" "lambda_role" {
   name = "lambda-role"
-  description = "Role da Função Lambda"
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
     Statement = [
@@ -32,14 +31,14 @@ resource "aws_iam_role" "lambda_role" {
   })
 }
 
+#Anexo de Policy a Role da Função Lambda
 resource "aws_iam_role_policy_attachment" "lambda_basic" {
-  description = "Anexo de Policy a Role da Função Lambda"
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
   role = aws_iam_role.lambda_role.name
 }
 
+#Adição de Permissão de Execução por API Gateway à Função Lambda
 resource "aws_lambda_permission" "apigw_lambda" {
-  description = "Adição de Permissão de Execução por API Gateway à Função Lambda"
   statement_id = "AllowExecutionFromAPIGateway"
   action = "lambda:InvokeFunction"
   function_name = aws_lambda_function.sync_lambda.function_name
