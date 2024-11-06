@@ -1,7 +1,7 @@
 data "archive_file" "lambda_package" {
   type = "zip"
-  source_file = "index.js"
-  output_path = "index.zip"
+  source_file = "${path.module}/index.js"
+  output_path = "${path.module}/index.zip"
 }
 
 resource "aws_lambda_function" "sync_lambda" {
