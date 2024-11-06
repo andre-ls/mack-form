@@ -3,22 +3,22 @@ resource "aws_vpc" "main_vpc" {
 }
 
 resource "aws_subnet" "primary_subnet" {
-  vpc_id                  = var.vpc_name
+  vpc_id                  = aws_vpc.main_vpc.id
   cidr_block              = var.primary_subnet_cidr
   map_public_ip_on_launch = true
 }
 
 resource "aws_subnet" "secondary_subnet" {
-  vpc_id     = var.vpc_name
+  vpc_id     = aws_vpc.main_vpc.id
   cidr_block = var.secondary_subnet_cidr
 }
 
 resource "aws_internet_gateway" "igw" {
-  vpc_id = var.vpc_name
+  vpc_id = aws_vpc.main_vpc.id
 }
 
 resource "aws_route_table" "public_rt" {
-  vpc_id = var.vpc_name
+  vpc_id = aws_vpc.main_vpc.id
 
   route {
     cidr_block = "0.0.0.0/0"
