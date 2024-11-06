@@ -1,6 +1,6 @@
 variable "vpc_name" {
 	description = "Nome de Identificação da VPC"
-	default = aws_vpc.main_vpc.id
+	default = "aws_vpc.main_vpc.id"
 }
 
 variable "vpc_cidr" {
