@@ -14,9 +14,9 @@ module "sync_api_gateway" {
   source = "./modules/api_gateway"
   api_path = "sync_api"
   lambda_arn = module.sync_lambda.lambda_arn
+  lambda_function_name = module.sync_lambda.lambda_function_name
 }
 
 module "sync_lambda" {
   source = "./modules/lambda"
-  api_gateway_arn = module.sync_api_gateway.api_arn
 }

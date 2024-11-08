@@ -51,3 +51,13 @@ resource "aws_api_gateway_integration_response" "proxy" {
     aws_api_gateway_integration.lambda_integration
   ]
 }
+
+#Adição de Permissão de Execução por API Gateway à Função Lambda
+resource "aws_lambda_permission" "apigw_lambda" {
+  statement_id = "AllowExecutionFromAPIGateway"
+  action = "lambda:InvokeFunction"
+  function_name = var.lambda_function_name
+  principal = "apigateway.amazonaws.com"
+
+  source_arn = "${aws_api_gateway_rest_api.rest_api.arn}/*/*/*"
+}
