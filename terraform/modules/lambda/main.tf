@@ -4,7 +4,7 @@ data "archive_file" "lambda_package" {
   output_path = "${path.module}/index.zip"
 }
 
-resource "aws_lambda_function" "sync_lambda" {
+resource "aws_lambda_function" "lambda" {
   description = "Recurso da Função Lambda"
   filename = "${path.module}/index.zip"
   function_name = "sync_requests"
