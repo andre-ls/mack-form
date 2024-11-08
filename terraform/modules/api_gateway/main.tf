@@ -31,7 +31,7 @@ resource "aws_api_gateway_method_response" "proxy" {
 
 #Mapeamento de Consulta da API para o Lambda
 resource "aws_api_gateway_integration" "lambda_integration" {
-  count = var.lambda_arn ? 1 : 0
+  count = var.lambda_arn != null ? 1 : 0
   rest_api_id = aws_api_gateway_rest_api.rest_api.id
   resource_id = aws_api_gateway_resource.root.id
   http_method = aws_api_gateway_method.proxy.http_method
@@ -42,7 +42,7 @@ resource "aws_api_gateway_integration" "lambda_integration" {
 
 #Mapeamento de Resposta do Lambda para API
 resource "aws_api_gateway_integration_response" "proxy" {
-  count = var.lambda_arn ? 1 : 0
+  count = var.lambda_arn != null ? 1 : 0
   rest_api_id = aws_api_gateway_rest_api.rest_api.id
   resource_id = aws_api_gateway_resource.root.id
   http_method = aws_api_gateway_method.proxy.http_method
@@ -56,7 +56,7 @@ resource "aws_api_gateway_integration_response" "proxy" {
 
 #Adição de Permissão de Execução por API Gateway à Função Lambda
 resource "aws_lambda_permission" "apigw_lambda" {
-  count = var.lambda_function_name ? 1 : 0
+  count = var.lambda_function_name != null ? 1 : 0
   statement_id = "AllowExecutionFromAPIGateway"
   action = "lambda:InvokeFunction"
   function_name = var.lambda_function_name
