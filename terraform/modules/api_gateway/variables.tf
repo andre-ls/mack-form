@@ -3,3 +3,8 @@ variable "api_path" {
 	type = string
 	default = "sync_api"
 }
+
+variable "lambda_arn" {
+	description = "ARN da Lambda Function a ser ativada pela API"
+	type = string
+}
