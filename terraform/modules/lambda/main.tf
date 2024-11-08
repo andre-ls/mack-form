@@ -10,7 +10,7 @@ resource "aws_lambda_function" "sync_lambda" {
   function_name = "sync_requests"
   role = "arn:aws:iam::038160823904:role/LabRole"
   handler = "index.handler"
-  runtime = "nodejs14.x"
+  runtime = "nodejs20.x"
   source_code_hash = data.archive_file.lambda_package.output_base64sha256
 }
 
