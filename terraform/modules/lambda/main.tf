@@ -32,10 +32,10 @@ resource "aws_lambda_function" "sync_lambda" {
 #}
 
 #Anexo de Policy a Role da Função Lambda
-resource "aws_iam_role_policy_attachment" "lambda_basic" {
-  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
-  role = "LabRole"
-}
+#resource "aws_iam_role_policy_attachment" "lambda_basic" {
+#  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+#  role = "LabRole"
+#}
 
 #Adição de Permissão de Execução por API Gateway à Função Lambda
 resource "aws_lambda_permission" "apigw_lambda" {
