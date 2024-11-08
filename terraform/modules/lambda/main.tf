@@ -6,7 +6,7 @@ data "archive_file" "lambda_package" {
 
 resource "aws_lambda_function" "sync_lambda" {
   description = "Recurso da Função Lambda"
-  filename = "index.zip"
+  filename = "${path.module}/index.zip"
   function_name = "sync_requests"
   role = "arn:aws:iam::038160823904:role/LabRole"
   handler = "index.handler"
