@@ -8,7 +8,7 @@ resource "aws_sqs_queue" "async_queue" {
 
 #Conexão com Lambda
 resource "aws_lambda_event_source_mapping" "event_source_mapping" {
-  event_source_arn = "aws_sqs_queue.async_queue.arn"
+  event_source_arn = aws_sqs_queue.async_queue.arn
   enabled          = true
   function_name    = var.lambda_arn
   batch_size       = 1
