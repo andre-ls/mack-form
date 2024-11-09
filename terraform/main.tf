@@ -10,6 +10,8 @@ module "security_groups" {
   vpc_id = module.vpc.main_vpc_id
 }
 
+
+# Sync Requests
 module "sync_api_gateway" {
   source = "./modules/api_gateway"
   api_path = "sync_api"
@@ -20,3 +22,16 @@ module "sync_lambda" {
   source = "./modules/lambda"
   api_gateway_arn = module.sync_api_gateway.api_arn
 }
+
+# Async Requests
+module "async_sqs" {
+  source = "./modules/sqs"
+  lambda_arn = module.async_lambda.lambda_arn
+}
+
+
+module "async_lambda" {
+  source = "./modules/lambda"
+  api_gateway_arn = module.sync_api_gateway.api_arn
+}
+
