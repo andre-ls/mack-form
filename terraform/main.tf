@@ -22,9 +22,3 @@ module "sync_lambda" {
   source = "./modules/sync_lambda"
   api_gateway_arn = module.sync_api_gateway.api_arn
 }
-
-# Async Requests
-module "async_sqs" {
-  source = "./modules/sqs"
-  lambda_arn = module.async_lambda.lambda_arn
-}
