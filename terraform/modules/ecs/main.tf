@@ -4,6 +4,8 @@ resource "aws_ecs_task_definition" "ecs_task" {
 	 cpu                      = 512
 	 memory                   = 1024
 	 network_mode             = "awsvpc"
+	 execution_role_arn       = "arn:aws:iam::038160823904:role/LabRole"
+	 task_role_arn            = "arn:aws:iam::038160823904:role/LabRole"
          container_definitions = jsonencode([
 		{
 		  name      = "batch_task"
