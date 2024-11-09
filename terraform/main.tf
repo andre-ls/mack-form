@@ -13,13 +13,13 @@ module "security_groups" {
 
 # Sync Requests
 module "sync_api_gateway" {
-  source = "./modules/api_gateway"
+  source = "./modules/primary_api_gateway"
   api_path = "sync_api"
   lambda_arn = module.sync_lambda.lambda_arn
 }
 
 module "sync_lambda" {
-  source = "./modules/lambda"
+  source = "./modules/sync_lambda"
   api_gateway_arn = module.sync_api_gateway.api_arn
 }
 
@@ -28,10 +28,3 @@ module "async_sqs" {
   source = "./modules/sqs"
   lambda_arn = module.async_lambda.lambda_arn
 }
-
-
-module "async_lambda" {
-  source = "./modules/lambda"
-  api_gateway_arn = module.sync_api_gateway.api_arn
-}
-
