@@ -9,7 +9,7 @@ resource "aws_scheduler_schedule" "event_bridge" {
   schedule_expression = "cron(*/30 * * * ? *)" # run every 30 minutes
 
   target {
-    arn      = var.cluster_arn # arn of the ecs cluster to run on
+    arn      = var.ecs_cluster_arn 
     role_arn = "arn:aws:iam::038160823904:role/LabRole"
 
     ecs_parameters {
