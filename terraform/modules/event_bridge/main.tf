@@ -15,6 +15,11 @@ resource "aws_scheduler_schedule" "event_bridge" {
     ecs_parameters {
       task_definition_arn = trimsuffix(var.ecs_task_arn, ":${var.ecs_task_revision}")
       launch_type         = "FARGATE"
+      network_configuration {
+        subnets          = [var.ecs_subnet]
+        security_groups  = [var.ecs_security_group]
+        assign_public_ip = true
+      }
     }
 
     retry_policy {

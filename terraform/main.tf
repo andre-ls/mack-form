@@ -46,4 +46,6 @@ module "event_bridge" {
   ecs_cluster_arn = module.ecs.ecs_cluster_arn
   ecs_task_arn = module.ecs.ecs_task_arn
   ecs_task_revision = module.ecs.ecs_task_revision
+  ecs_subnet = module.vpc.primary_subnet_id
+  ecs_security_group = module.security_groups.ecs_sg_id
 }
