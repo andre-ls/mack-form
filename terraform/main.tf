@@ -31,3 +31,15 @@ module "async_sqs" {
 module "async_lambda" {
   source = "./modules/async_lambda"
 }
+
+# Batch Requests
+module "ecs" {
+  source = "./modules/ecs"
+}
+
+module "event_bridge" {
+  source = "./modules/event_bridge"
+  ecs_cluster_arn = module.ecs.ecs_cluster_arn
+  ecs_task_arn = module.ecs.ecs_task_arn
+  ecs_task_revision = module.ecs.ecs_task_revision
+}
