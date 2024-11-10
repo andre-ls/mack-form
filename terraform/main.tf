@@ -35,6 +35,8 @@ module "async_lambda" {
 # Batch Requests
 module "ecs" {
   source = "./modules/ecs"
+  ecs_subnet = module.vpc.primary_subnet_id
+  ecs_security_group = module.security_groups.ecs_sg_id
 }
 
 module "event_bridge" {
