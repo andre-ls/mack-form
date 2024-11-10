@@ -8,6 +8,8 @@ module "vpc" {
 module "security_groups" {
   source = "./modules/security_groups"
   vpc_id = module.vpc.main_vpc_id
+  primary_subnet_cidr = "10.0.1.0/24"
+  secondary_subnet_cidr = "10.0.4.0/24"
 }
 
 # Sync Requests
