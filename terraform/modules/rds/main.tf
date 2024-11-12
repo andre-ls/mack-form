@@ -22,7 +22,3 @@ resource "aws_db_instance" "rds_instance" {
     Name = var.instance_name
   }
 }
-
-output "rds_endpoint" {
-  value = aws_db_instance.rds_instance.endpoint
-}
