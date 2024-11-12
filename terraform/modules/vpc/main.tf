@@ -10,13 +10,13 @@ resource "aws_subnet" "primary_subnet" {
 
 resource "aws_subnet" "secondary_subnet_a" {
   vpc_id     = aws_vpc.main_vpc.id
-  cidr_block = var.secondary_subnet_cidr
+  cidr_block = var.secondary_subnet_a_cidr
   availability_zone       = "us-east-1a"
 }
 
 resource "aws_subnet" "secondary_subnet_b" {
   vpc_id     = aws_vpc.main_vpc.id
-  cidr_block = var.secondary_subnet_cidr
+  cidr_block = var.secondary_subnet_b_cidr
   availability_zone       = "us-east-1b"
 }
 

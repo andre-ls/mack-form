@@ -8,7 +8,12 @@ variable "primary_subnet_cidr" {
 	type = string
 }
 
-variable "secondary_subnet_cidr" {
-	description = "Bloco CIDR da Subnet Secundária"
+variable "secondary_subnet_a_cidr" {
+	description = "Bloco CIDR da Subnet Secundária A"
+	type = string
+}
+
+variable "secondary_subnet_b_cidr" {
+	description = "Bloco CIDR da Subnet Secundária B"
 	type = string
 }
