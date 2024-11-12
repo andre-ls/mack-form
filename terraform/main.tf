@@ -53,7 +53,7 @@ module "event_bridge" {
 # Secondary Layer
 module "rds" {
   source             = "./modules/rds"
-  subnet_ids        = [module.vpc.secondary_subnet_id]
+  subnet_ids        = [module.vpc.secondary_subnet_a_id, module.vpc.secondary_subnet_b_id]
   security_group_ids = [module.security_groups.rds_sg_id]
 }
 
