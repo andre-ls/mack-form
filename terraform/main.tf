@@ -58,4 +58,6 @@ module "rds" {
   security_group_ids = [module.security_groups.rds_sg_id]
 }
 
-
+module "dynamo_db" {
+  source = "./modules/dynamo_db"
+}
