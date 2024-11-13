@@ -15,8 +15,8 @@ resource "aws_dynamodb_table_item" "user_item" {
   table_name = aws_dynamodb_table.users.id
   hash_key   = "UserId"
   item       = jsonencode({
-     "UserId"   : "user123",
-     "UserName" : "Luke Skywalker",
-     "Email"    : "usetheforceluke@example.com"
+     UserId = "user123",
+     UserName = "Luke Skywalker",
+     Email = "usetheforceluke@example.com"
   })
 }
