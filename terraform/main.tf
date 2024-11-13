@@ -61,3 +61,8 @@ module "rds" {
 module "dynamo_db" {
   source = "./modules/dynamo_db"
 }
+
+module "secondary_api_gateway" {
+  source = "./modules/secondary_api_gateway"
+  api_path = "secondary_api"
+}
