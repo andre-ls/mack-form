@@ -1,11 +1,11 @@
-resource "aws_security_group" "rds_sg" {
+resource "aws_security_group" "lambda_sg" {
   vpc_id = var.vpc_id
 
   ingress {
-    from_port   = 3306
-    to_port     = 3306
+    from_port   = 443
+    to_port     = 443
     protocol    = "tcp"
-    cidr_blocks = ["10.0.1.0/24"]
+    cidr_blocks = [var.primary_subnet_cidr]
   }
 
   egress {
@@ -14,6 +14,7 @@ resource "aws_security_group" "rds_sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
 }
 
 resource "aws_security_group" "ecs_sg" {
@@ -33,4 +34,22 @@ resource "aws_security_group" "ecs_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+}
+
+resource "aws_security_group" "rds_sg" {
+  vpc_id = var.vpc_id
+
+  ingress {
+    from_port   = 3306
+    to_port     = 3306
+    protocol    = "tcp"
+    cidr_blocks = ["10.0.1.0/24"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 }

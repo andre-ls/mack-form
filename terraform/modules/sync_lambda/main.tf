@@ -12,6 +12,10 @@ resource "aws_lambda_function" "sync_lambda" {
   handler = "index.handler"
   runtime = "nodejs20.x"
   source_code_hash = data.archive_file.sync_lambda_package.output_base64sha256
+  vpc_config {
+    subnet_ids         = [var.lambda_subnet]
+    security_group_ids = [var.lambda_security_group]
+  }
 }
 
 #Adição de Permissão de Execução por API Gateway à Função Lambda
