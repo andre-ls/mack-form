@@ -35,6 +35,8 @@ module "async_sqs" {
 
 module "async_lambda" {
   source = "./modules/async_lambda"
+  lambda_subnet = module.vpc.primary_subnet_id
+  lambda_security_group = module.security_groups.lambda_sg_id
 }
 
 # Batch Requests
