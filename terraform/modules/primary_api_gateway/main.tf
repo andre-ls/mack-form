@@ -73,7 +73,7 @@ resource "aws_api_gateway_integration_response" "proxy" {
   rest_api_id = module.api_gateway.api_id 
   resource_id = module.api_gateway.root 
   http_method = module.api_gateway.http_method
-  status_code = module.api_gateway.proxy.status_code
+  status_code = module.api_gateway.proxy_status_code
 
   depends_on = [
     aws_api_gateway_integration.lambda_integration
