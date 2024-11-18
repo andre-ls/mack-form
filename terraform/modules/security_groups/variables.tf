@@ -4,11 +4,11 @@ variable "vpc_id" {
 }
 
 variable "primary_subnet_cidr" {
-	description = "CIDR da VPC Primária"
-	type = string
+	description = "CIDRs da VPC Primária"
+	type = list(string)
 }
 
 variable "secondary_subnet_cidr" {
-	description = "CIDR da VPC Secundária"
-	type = string
+	description = "CIDRs da VPC Secundária"
+	type = list(string)
 }
