@@ -5,7 +5,7 @@ resource "aws_security_group" "lambda_sg" {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-    cidr_blocks = var.primary_subnet_cidr]
+    cidr_blocks = var.primary_subnet_cidr
   }
 
   egress {
@@ -24,7 +24,7 @@ resource "aws_security_group" "ecs_sg" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = [var.primary_subnet_cidr
+    cidr_blocks = var.primary_subnet_cidr
   }
 
   egress {
