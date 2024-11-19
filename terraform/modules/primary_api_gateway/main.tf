@@ -53,7 +53,7 @@
 #}
 
 module "api_gateway" {
-  source = "../submodules/api_gateway"
+  source = "../../submodules/api_gateway"
   api_name = "sync_api"
   api_path = var.api_path
 }
