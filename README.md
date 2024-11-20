@@ -6,7 +6,7 @@ Este repositório contém um projeto relacionado ao Trabalho Final Individual da
 
 O objetivo deste trabalho é o de utilizar os conhecimento e boas práticas adquiridas em aula relacionadas à utilização de ferramentas de Infrastructure as a Code (IaC), principalmente de Terraform, para implementar em um ambiente AWS a seguinte arquitetura hexagonal:
 
-![Arquitetura]('architecture.png')
+<img src="architecture.png" alt="architecture" width="550"/>
 
 A arquitetura acima é oriunda de um exemplo proposto pela própria documentação da AWS que sugere a criação de duas camadas de elementos que dão suporte a uma determinada aplicação, localizada no seu centro. 
 
@@ -63,10 +63,10 @@ Acredito que a principal melhoria neste projeto pode estar associada à uma melh
 
 ## Referências
 
-[Module creation - recommended pattern por Hashicorp]('https://developer.hashicorp.com/terraform/tutorials/modules/pattern-module-creation')
+[Module creation - recommended pattern por Hashicorp](https://developer.hashicorp.com/terraform/tutorials/modules/pattern-module-creation)
 
-[How to Create API Gateway Using Terraform & AWS Lambda por Spacelift]('https://spacelift.io/blog/terraform-api-gateway')
+[How to Create API Gateway Using Terraform & AWS Lambda por Spacelift](https://spacelift.io/blog/terraform-api-gateway)
 
-[Setup Lambda to Event Source from SQS in Terraform por Sheehan Alam]('https://medium.com/appetite-for-cloud-formation/setup-lambda-to-event-source-from-sqs-in-terraform-6187c5ac2df1')
+[Setup Lambda to Event Source from SQS in Terraform por Sheehan Alam](https://medium.com/appetite-for-cloud-formation/setup-lambda-to-event-source-from-sqs-in-terraform-6187c5ac2df1)
 
-[Using terraform to setup AWS EventBridge Scheduler and a scheduled ECS Task por Igor Kachmaryk]('https://medium.com/@igorkachmaryk/using-terraform-to-setup-aws-eventbridge-scheduler-and-a-scheduled-ecs-task-1208ae077360')
+[Using terraform to setup AWS EventBridge Scheduler and a scheduled ECS Task por Igor Kachmaryk](https://medium.com/@igorkachmaryk/using-terraform-to-setup-aws-eventbridge-scheduler-and-a-scheduled-ecs-task-1208ae077360)
